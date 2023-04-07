@@ -15,10 +15,10 @@ function Copyright() {
 }
 
 export const Footer = () => {
-  const location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  });
+  // const location = useLocation();
+  // useEffect(() => {
+  //   console.log(location.pathname);
+  // });
 
   return (
     <div className="white">

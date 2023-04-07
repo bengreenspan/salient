@@ -5,11 +5,22 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useLocation } from "react-router-dom";
+import companies from "./FirstPage/StockList.js";
+import { useParams } from "react-router-dom";
 
 const Stock = () => {
+  const { urlParam } = useParams();
   const location = useLocation();
-console.log("loc", location)
+  const stockSymbol = location.pathname.slice(8);
 
+  const company = companies.find((c) => c.symbol === stockSymbol);
+
+  let companyName;
+  if (company) {
+    companyName = company.name;
+  } else {
+    companyName = "nope";
+  }
 
   return (
     <BS.Container>
@@ -21,7 +32,7 @@ console.log("loc", location)
               data-aos="zoom-in"
               data-aos-duration="1000"
             >
- The Stock page
+              The {stockSymbol} page
             </div>
           </Typography>
         </Box>
@@ -50,7 +61,7 @@ console.log("loc", location)
                       <Typography align="right">
                         <h2 className="font">
                           <div data-aos="fade-left" data-aos-duration="1000">
-                            tittes
+                            {companyName}
                           </div>
                         </h2>
                       </Typography>

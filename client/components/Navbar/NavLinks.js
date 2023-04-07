@@ -45,7 +45,7 @@ const NavLinks = () => {
       } else {
         // setNavBackground(navClear);
         setNavPosition(navHorizontal);
-        console.log("big")
+        // console.log("big")
       }
   }, []);
 
