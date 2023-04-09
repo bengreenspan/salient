@@ -14,7 +14,7 @@ const Search = () => {
   const onSearch = (company) => {
     history.push({
       pathname: `/search/${company.symbol}`,
-      state: { name: company.name, symbol: company.symbol}
+      state: { name: company.name, symbol: company.symbol, cik: company.cik}
     });
   };
 

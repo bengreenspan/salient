@@ -22,6 +22,8 @@ const Stock = () => {
     companyName = "nope";
   }
 
+  console.log('cik?', company)
+
   return (
     <BS.Container>
       <div>
@@ -62,6 +64,9 @@ const Stock = () => {
                         <h2 className="font">
                           <div data-aos="fade-left" data-aos-duration="1000">
                             {companyName}
+                  <br/>
+                  <br/>
+                            {company.cik}
                           </div>
                         </h2>
                       </Typography>
