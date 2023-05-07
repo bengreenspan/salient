@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Aos from "aos";
 import ReactGA from "react-ga";
-import Search from "./Search";
+import Search from "../Search";
 
 const FirstContact = () => {
   useEffect(() => {

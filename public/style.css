@@ -6,6 +6,40 @@
   font-family: "Neue Haas Grotesk Text Pro", sans-serif;
 }
 
+.grid-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.grid-table th,
+.grid-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.grid-table th {
+  background-color: #f2f2f2;
+}
+
+.dropdown-row:hover {
+  background-color: rgba(0, 123, 255, 0.25);
+  cursor: pointer;
+}
+
+.search-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.search-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 .date {
   border: 5px solid #f4f3f2;
   background-color: #f4f3f2;

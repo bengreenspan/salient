@@ -3,12 +3,9 @@ import * as BS from "react-bootstrap";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
-import { Divider } from "@mui/material";
-// import "aos/dist/aos.css"
 import Za from "./CustomerComp/Za";
-// import CBS from "./CustomerComp/CBS";
 import Aos from "aos";
-import { Link } from "react-router-dom";
+
 
 const WeekCalendar = () => {
   return (

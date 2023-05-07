@@ -8,7 +8,8 @@ import Home from "./components/LoggedIn/Home";
 import Tips from "./components/Tips";
 import NotFound from "./components/NotFound";
 import Clubs from "./components/Clubs";
-import Stock from "./components/Stock";
+import Stock from "./components/SingleStock";
+import Combo from "./components/Combo";
 
 
 import { me } from "./store";
@@ -39,6 +40,7 @@ class Routes extends Component {
             <Route path="/Tips" component={Tips} />
             <Route path="/Clubs" component={Clubs} />
             <Route path="/Search/:id" component={Stock} />
+            <Route path="/Combos" component={Combo} />
             <Route path="/*">
               <NotFound />{" "}
             </Route>
