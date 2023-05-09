@@ -1,10 +1,25 @@
 import React, { useState } from "react";
-import q1docs from "./Q12023.js";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import q1_2023_docs from "./Q12023.js";
+import q4_2022_docs from "./Q42022.js";
+import q3_2022_docs from "./Q32022.js";
+import q1_2022_docs from "./Q12022.js";
 import { useHistory } from "react-router-dom";
+import ListItemText from "@mui/material/ListItemText";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  IconButton,
+  Checkbox,
+  Popover,
+  ListItem,
+  List,
+} from "@mui/material";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 const Grid = ({ company }) => {
   const history = useHistory();
@@ -24,8 +39,17 @@ const Grid = ({ company }) => {
 
   const [sortField, setSortField] = useState("Date_Filed");
   const [sortDirection, setSortDirection] = useState("desc");
+
+  // Combine the data from all three quarters
+  const allDocs = [
+    ...q1_2023_docs,
+    ...q3_2022_docs,
+    ...q4_2022_docs,
+    ...q1_2022_docs,
+  ];
+
   const filteredDocs = company
-    ? q1docs.filter((doc) => doc.CIK === company.cik * 1)
+    ? allDocs.filter((doc) => doc.CIK === company.cik * 1)
     : [];
 
   const sortData = (field) => {
@@ -40,60 +64,178 @@ const Grid = ({ company }) => {
     );
   };
 
-  const sortedDocs = [...filteredDocs].sort((a, b) => {
-    const valA = a[sortField];
-    const valB = b[sortField];
+  const initialFilters = {
+    Doctype: [...new Set(allDocs.map((doc) => doc.Doctype))],
+    Quarter: [...new Set(allDocs.map((doc) => doc.Quarter))],
+    Year: [...new Set(allDocs.map((doc) => doc.Year))],
+  };
 
-    if (sortField === "Date_Filed") {
+  const [filteredColumns, setFilteredColumns] = useState(initialFilters);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [columnFilter, setColumnFilter] = useState("Doctype");
+
+  const handleFilterClick = (event, columnName) => {
+    setAnchorEl(event.currentTarget);
+    setColumnFilter(columnName);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleToggleFilter = (value) => {
+    setFilteredColumns((prevState) => {
+      const newFilters = [...prevState[columnFilter]];
+      const valueIndex = newFilters.indexOf(value);
+
+      if (valueIndex === -1) {
+        newFilters.push(value);
+      } else {
+        newFilters.splice(valueIndex, 1);
+      }
+
+      return { ...prevState, [columnFilter]: newFilters };
+    });
+  };
+
+  const isFiltered = (value) => filteredColumns[columnFilter].includes(value);
+
+  const open = Boolean(anchorEl);
+  const id = open ? "filter-popover" : undefined;
+
+  // Update sortedDocs to filter based on the selected filters
+  const sortedDocs = [...filteredDocs]
+    .filter(
+      (doc) =>
+        (filteredColumns.Doctype.length === 0 ||
+          filteredColumns.Doctype.includes(doc.Doctype)) &&
+        (filteredColumns.Quarter.length === 0 ||
+          filteredColumns.Quarter.includes(doc.Quarter)) &&
+        (filteredColumns.Year.length === 0 ||
+          filteredColumns.Year.includes(doc.Year))
+    )
+    .sort((a, b) => {
+      const valA = a[sortField];
+      const valB = b[sortField];
+
+      if (sortField === "Date_Filed") {
+        return sortDirection === "asc"
+          ? parseInt(valA) - parseInt(valB)
+          : parseInt(valB) - parseInt(valA);
+      }
+
       return sortDirection === "asc"
-        ? parseInt(valA) - parseInt(valB)
-        : parseInt(valB) - parseInt(valA);
-    }
+        ? String(valA).localeCompare(valB)
+        : String(valB).localeCompare(valA);
+    });
 
-    return sortDirection === "asc"
-      ? String(valA).localeCompare(valB)
-      : String(valB).localeCompare(valA);
-  });
+  const filterOptions = Array.from(
+    new Set(sortedDocs.map((doc) => doc[columnFilter]))
+  );
 
   return (
-    <table className="grid-table">
-      <thead>
-        <tr>
-          <th>
-            <IconButton onClick={() => sortData("Doctype")} size="small">
-              <ArrowUpwardIcon fontSize="inherit" />
-            </IconButton>
-            Filing type
-            <IconButton onClick={() => sortData("Doctype")} size="small">
-              <ArrowDownwardIcon fontSize="inherit" />
-            </IconButton>
-          </th>
-          <th>
-            <IconButton onClick={() => sortData("Date_Filed")} size="small">
-              <ArrowUpwardIcon fontSize="inherit" />
-            </IconButton>
-            Date Filed
-            <IconButton onClick={() => sortData("Date_Filed")} size="small">
-              <ArrowDownwardIcon fontSize="inherit" />
-            </IconButton>
-          </th>
-          <th>URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortedDocs.map((doc, index) => (
-          <tr key={index}>
-            <td>{doc.Doctype}</td>
-            <td>{serialNumberToDate(doc.Date_Filed)}</td>
-            <td>
-              <a href={doc.url} target="_blank" rel="noopener noreferrer">
-                {doc.url}
-              </a>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <Table className="grid-table">
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              Filing type
+              <IconButton onClick={() => sortData("Doctype")}>
+                {sortField === "Doctype" && sortDirection === "asc" ? (
+                  <ArrowUpwardIcon fontSize="inherit" />
+                ) : (
+                  <ArrowDownwardIcon fontSize="inherit" />
+                )}
+              </IconButton>
+              <IconButton onClick={(e) => handleFilterClick(e, "Doctype")}>
+                <FilterListIcon />
+              </IconButton>
+            </TableCell>
+            <TableCell>URL</TableCell>
+            <TableCell>
+              Date Filed
+              <IconButton onClick={() => sortData("Date_Filed")}>
+                {sortField === "Date_Filed" && sortDirection === "asc" ? (
+                  <ArrowUpwardIcon fontSize="inherit" />
+                ) : (
+                  <ArrowDownwardIcon fontSize="inherit" />
+                )}
+              </IconButton>
+            </TableCell>
+            <TableCell>
+              Quarter
+              <IconButton onClick={() => sortData("Quarter")}>
+                {sortField === "Quarter" && sortDirection === "asc" ? (
+                  <ArrowUpwardIcon fontSize="inherit" />
+                ) : (
+                  <ArrowDownwardIcon fontSize="inherit" />
+                )}
+              </IconButton>
+              <IconButton onClick={(e) => handleFilterClick(e, "Quarter")}>
+                <FilterListIcon />
+              </IconButton>
+            </TableCell>
+            <TableCell>
+              Year
+              <IconButton onClick={() => sortData("Year")}>
+                {sortField === "Year" && sortDirection === "asc" ? (
+                  <ArrowUpwardIcon fontSize="inherit" />
+                ) : (
+                  <ArrowDownwardIcon fontSize="inherit" />
+                )}
+              </IconButton>
+              <IconButton onClick={(e) => handleFilterClick(e, "Year")}>
+                <FilterListIcon />
+              </IconButton>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sortedDocs.map((doc, index) => (
+            <TableRow key={index}>
+              <TableCell>{doc.Doctype}</TableCell>
+              <TableCell>
+                <a href={doc.url} target="_blank" rel="noopener noreferrer">
+                  {doc.url}
+                </a>
+              </TableCell>
+              <TableCell>{serialNumberToDate(doc.Date_Filed)}</TableCell>
+              <TableCell>{doc.Quarter}</TableCell>
+              <TableCell>{doc.Year}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+      {/* Add Popover for filter options */}
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <List>
+          {/* Render filter options based on columnFilter */}
+          {Array.from(
+            new Set(filteredDocs.map((doc) => doc[columnFilter]))
+          ).map((value) => (
+            <ListItem key={value} onClick={() => handleToggleFilter(value)}>
+              <Checkbox checked={isFiltered(value)} />
+              <ListItemText primary={value} />
+            </ListItem>
+          ))}
+        </List>
+      </Popover>
+    </>
   );
 };
 
