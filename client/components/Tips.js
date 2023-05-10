@@ -162,12 +162,10 @@ const Tips = () => {
                         target="_blank"
                         href="https://www8.gsb.columbia.edu/emba-students/academic-essentials/policies/auditing"
                       >
-           Step 1
+                        Step 1
                       </a>
                       <div>
-                        <h4>
-                    blah blah blah
-                        </h4>
+                        <h4>blah blah bla</h4>
                       </div>
                     </div>
                     <br />
@@ -185,13 +183,11 @@ const Tips = () => {
                         target="_blank"
                         href="https://transportation.columbia.edu/content/bike-registration"
                       >
-                       Step 2
+                        Step 2
                       </a>
                     </div>
-  
-                    <h4>
-                     Keep searching
-                    </h4>
+
+                    <h4>Keep searching</h4>
                   </div>
                   <br />
                 </BS.Col>
@@ -208,12 +204,9 @@ const Tips = () => {
                         target="_blank"
                         href="https://blogs.cul.columbia.edu/spotlights/category/new-e-resources/"
                       >
-                   Three
+                        Three
                       </a>
-                      <h4>
-                        {" "}
-                      Do do tha chach cha
-                      </h4>
+                      <h4> Do do tha chach cha</h4>
 
                       <div className="links">
                         <a
