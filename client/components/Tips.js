@@ -125,7 +125,7 @@ const Tips = () => {
                     data-aos="fade-right"
                     data-aos-duration="1500"
                   >
-                    Tips for Columbia Business School
+                    Tips for using Salient
                     <h4>
                       In an effort to help you get the most out of your time at
                     </h4>
@@ -162,12 +162,11 @@ const Tips = () => {
                         target="_blank"
                         href="https://www8.gsb.columbia.edu/emba-students/academic-essentials/policies/auditing"
                       >
-                        Auditing Classes
+           Step 1
                       </a>
                       <div>
                         <h4>
-                          You can audit any class, even after you graduate, in
-                          any school, as long as you get the instructors
+                    blah blah blah
                         </h4>
                       </div>
                     </div>
@@ -186,13 +185,12 @@ const Tips = () => {
                         target="_blank"
                         href="https://transportation.columbia.edu/content/bike-registration"
                       >
-                        Indoor Bike Storage
+                       Step 2
                       </a>
                     </div>
   
                     <h4>
-                      Attatched to Geffen on the north side of the building
-                      there is an indoor bike room. You will need to register
+                     Keep searching
                     </h4>
                   </div>
                   <br />
@@ -210,12 +208,11 @@ const Tips = () => {
                         target="_blank"
                         href="https://blogs.cul.columbia.edu/spotlights/category/new-e-resources/"
                       >
-                        News Services
+                   Three
                       </a>
                       <h4>
                         {" "}
-                        Access popular financial news sources through Columbia’s
-                        free.
+                      Do do tha chach cha
                       </h4>
 
                       <div className="links">

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import q1_2023_docs from "./Q12023.js";
 import q4_2022_docs from "./Q42022.js";
 import q3_2022_docs from "./Q32022.js";
+import q2_2022_docs from "./Q22022.js";
 import q1_2022_docs from "./Q12022.js";
+
 import { useHistory } from "react-router-dom";
 import ListItemText from "@mui/material/ListItemText";
 import {
@@ -40,9 +42,10 @@ const Grid = ({ company }) => {
   const [sortField, setSortField] = useState("Date_Filed");
   const [sortDirection, setSortDirection] = useState("desc");
 
-  // Combine the data from all three quarters
+  // Combine the data from all quarters
   const allDocs = [
     ...q1_2023_docs,
+    ...q2_2022_docs,
     ...q3_2022_docs,
     ...q4_2022_docs,
     ...q1_2022_docs,

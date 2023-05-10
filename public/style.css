@@ -180,14 +180,6 @@ h1 span {
   border-radius: 15px;
 }
 
-.white {
-  background: url(white.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .orangeBack {
   background: url(orangey.png) no-repeat center center fixed;
   -webkit-background-size: cover;

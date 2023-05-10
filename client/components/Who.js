@@ -54,15 +54,12 @@ const Who = () => {
                       <Typography align="right">
                         <h5 className="font">
                           <div data-aos="fade-left" data-aos-duration="1000">
-                            Haas '24 and Ben '24 are two Columbia EMBA students
-                            dedicated to finding useful and relevant information
-                            for Columbia Business School students.
+                            Finding useful and relevant information for
+                            Financial Professionals
                             <br />
                             <br />
-                            Our mission is to aggregate and link to CBS events
-                            in one convenient place. This includes speakers,
-                            club events, as well as school run activities, along
-                            witht the occasional non CBS event.
+                            Our mission is to aggregate and link to research in
+                            one convenient place.
                           </div>
                         </h5>
                       </Typography>
@@ -91,21 +88,15 @@ const Who = () => {
                             <br />
 
                             <h2>
-                              Haas Rahaman <br />
-                              <div className="fontbold">
-                                Chief Content Officer
-                              </div>
+                              Guy 1 <br />
+                              <div className="fontbold">Interns</div>
                               <br />
                             </h2>
                             <h4>
-                              Haas is looking to make the pivot from his current
-                              roles as a healthcare administrator to a career in
-                              real estate. A networker's networker, Haas
-                              populates, keeps track, and attends most events on
-                              the site.
+                              Help out
                               <br />
                               <br />
-                              Hrahman24@gsb.columbia.edu{" "}
+                              @gsb.columbia.edu{" "}
                             </h4>
                           </Typography>
                         </div>
