@@ -46,7 +46,12 @@ const Search = ({ onCompanySelected }) => {
 
   return (
     <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        // pt: 50,
+      }}
     >
       <h1>Quick Search</h1>
       <br />
