@@ -222,13 +222,13 @@ const Tips = () => {
                         </a>
                       </div>
 
-                      <a
+                      {/* <a
                         target="_blank"
                         href="https://blogs.cul.columbia.edu/business/2015/01/28/new-resource-financial-times-ft-com/"
                       >
                         <div className="links">
                           <h4>Financial Times</h4>
-                        </div>
+                        </div> */}
                       </a>
                     </div>
                   </div>
