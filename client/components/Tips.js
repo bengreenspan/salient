@@ -160,12 +160,12 @@ const Tips = () => {
                     <div className="links">
                       <a
                         target="_blank"
-                        href="https://www8.gsb.columbia.edu/emba-students/academic-essentials/policies/auditing"
+                        // href="https://www8.gsb.columbia.edu/emba-students/academic-essentials/policies/auditing"
                       >
-                        Step 1
+                        1
                       </a>
                       <div>
-                        <h4>blah blah bla</h4>
+                        <h4>Look up stock by ticker or company name</h4>
                       </div>
                     </div>
                     <br />
@@ -181,13 +181,18 @@ const Tips = () => {
                     <div className="links">
                       <a
                         target="_blank"
-                        href="https://transportation.columbia.edu/content/bike-registration"
+                        // href="https://transportation.columbia.edu/content/bike-registration"
                       >
-                        Step 2
+                        2
                       </a>
                     </div>
 
-                    <h4>Keep searching</h4>
+                    <h4>
+                      SEC Documents are sortable and can be filtered by Doc
+                      Type.
+                    </h4>
+                    <br />
+                    <h4>Documents currently contain Q1 2022 to Q1 2023</h4>
                   </div>
                   <br />
                 </BS.Col>
@@ -202,18 +207,18 @@ const Tips = () => {
                     <div className="links">
                       <a
                         target="_blank"
-                        href="https://blogs.cul.columbia.edu/spotlights/category/new-e-resources/"
+                        // href="https://blogs.cul.columbia.edu/spotlights/category/new-e-resources/"
                       >
-                        Three
+                       3
                       </a>
-                      <h4> Do do tha chach cha</h4>
+                      <h4> Give Feedback!</h4>
 
                       <div className="links">
                         <a
                           target="_blank"
-                          href="https://blogs.cul.columbia.edu/spotlights/2021/09/21/new-york-times-access/"
+                          // href="https://blogs.cul.columbia.edu/spotlights/2021/09/21/new-york-times-access/"
                         >
-                          <h4>New York Times </h4>
+                          {/* <h4>New York Times </h4> */}
                         </a>
                       </div>
 

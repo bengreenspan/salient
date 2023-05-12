@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
+import QuickSearch from "./QuickSearch.js";
 
 const Search = ({ onCompanySelected }) => {
   const [value, setValue] = useState("");
@@ -49,54 +50,12 @@ const Search = ({ onCompanySelected }) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        // pt: 50,
+        alignItems: "right",
+        pt: 20,
+        pb: 20,
+        pr: 10,
       }}
     >
-      <h1>Quick Search</h1>
-      <br />
-
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Link
-          to={{
-            pathname: `/search/TSLA`,
-            state: { name: "Tesla", symbol: "TSLA" },
-          }}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <button style={{ marginRight: "10px", borderRadius: "5px" }}>
-            Tesla (TSLA)
-          </button>
-        </Link>
-
-        <Link
-          to={{
-            pathname: `/search/DIS`,
-            state: { name: "Disney", symbol: "DIS" },
-          }}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <button style={{ marginRight: "10px", borderRadius: "5px" }}>
-            Disney (DIS)
-          </button>
-        </Link>
-
-        <Link
-          to={{
-            pathname: `/search/ZM`,
-            state: { name: "Zoom", symbol: "ZM" },
-          }}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <button style={{ marginRight: "10px", borderRadius: "5px" }}>
-            Zoom (ZM)
-          </button>
-        </Link>
-      </Box>
-
-      <br />
-      <br />
-
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
@@ -111,7 +70,7 @@ const Search = ({ onCompanySelected }) => {
           }}
         >
           <TextField
-            label="Search"
+            label="Search Company Here"
             value={value}
             onChange={onChange}
             fullWidth

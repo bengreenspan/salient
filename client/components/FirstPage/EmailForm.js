@@ -92,133 +92,133 @@ const Form = () => {
         <Container className="form" sx={{ pt: 10 }}>
           <BS.Row>
             <BS.Col>
-            <div data-aos="fade-down" data-aos-duration="1000">
-              <img src="/5star.png" alt="one" width="300" />
+              <div data-aos="fade-down" data-aos-duration="1000">
+                <img src="/5star.png" alt="one" width="300" />
               </div>
             </BS.Col>
             <BS.Col md={7}>
-            <div data-aos="fade-up" data-aos-duration="1000">
-              <Typography>
-                <Typography
-                  variant="h4"
-                  // className="white-background"
-                  sx={{
-                    pt: 0,
-                    pl: 3,
-                    pr: 3,
-                    pb: 0,
-                    justifyContent: "center",
-                  }}
-                >
-                  <div className="fontbold">Looking for updates?</div>
-                  <div className="fontbold">Fill out the form below </div>
-                  <br />
-                  <h4>Sign up to get weekly notifications on new events</h4>
+              <div data-aos="fade-up" data-aos-duration="1000">
+                <Typography>
+                  <Typography
+                    variant="h4"
+                    // className="white-background"
+                    sx={{
+                      pt: 0,
+                      pl: 3,
+                      pr: 3,
+                      pb: 0,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <div className="fontbold">Looking for updates?</div>
+                    <div className="fontbold">Fill out the form below </div>
+                    <br />
+                    <h4>Sign up to get updates on product availability</h4>
 
-                  <br />
+                    <br />
+                  </Typography>
                 </Typography>
-              </Typography>
 
-              <div>
-                <Box
-                  component="form"
-                  sx={{
-                    "& .MuiTextField-root": { m: 1, width: "25ch" },
-                  }}
-                  autoComplete="off"
-                  onSubmit={onSubmit}
-                >
-                  <Container>
-                    <Box
-                      className="font"
-                      sx={{ display: "flex", justifyContent: "center" }}
-                    >
-                      <TextField
-                        required
-                        id="outlined-email-input"
-                        label="Email"
-                        type="email"
-                        autoComplete="email"
-                        value={toSend.email}
-                        onChange={handleChange}
-                        name="email"
-                        helperText={errors.email}
-                      />
-                    </Box>
+                <div>
+                  <Box
+                    component="form"
+                    sx={{
+                      "& .MuiTextField-root": { m: 1, width: "25ch" },
+                    }}
+                    autoComplete="off"
+                    onSubmit={onSubmit}
+                  >
+                    <Container>
+                      <Box
+                        className="font"
+                        sx={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <TextField
+                          required
+                          id="outlined-email-input"
+                          label="Email"
+                          type="email"
+                          autoComplete="email"
+                          value={toSend.email}
+                          onChange={handleChange}
+                          name="email"
+                          helperText={errors.email}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          "& > :not(style)": { m: 0 },
+                        }}
+                      ></Box>
+                    </Container>
+                    <br />
                     <Box
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        "& > :not(style)": { m: 0 },
+                        pt: 0,
+                        pb: 10,
                       }}
-                    ></Box>
-                  </Container>
-                  <br/>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      pt: 0,
-                      pb: 10,
-                    }}
-                  >
-                    <div data-aos="zoom-out" data-aos-duration="2000">
-                      <button>
-                        <div className="svg-wrapper-1">
-                          <div className="svg-wrapper">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              width="24"
-                              height="24"
-                            >
-                              <path fill="none" d="M0 0h24v24H0z"></path>
-                              <path
-                                fill="currentColor"
-                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                              ></path>
-                            </svg>
+                    >
+                      <div data-aos="zoom-out" data-aos-duration="2000">
+                        <button>
+                          <div className="svg-wrapper-1">
+                            <div className="svg-wrapper">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                              >
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                  fill="currentColor"
+                                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                ></path>
+                              </svg>
+                            </div>
                           </div>
-                        </div>
-                  
-                        <span>Submit</span>
-                      </button>
 
-                      <Modal
-                        aria-labelledby="transition-modal-title"
-                        aria-describedby="transition-modal-description"
-                        open={open}
-                        onClose={resetForm}
-                        closeAfterTransition
-                        BackdropComponent={Backdrop}
-                        BackdropProps={{
-                          timeout: 500,
-                        }}
-                      >
-                        <Fade in={open}>
-                          <Box sx={style}>
-                            <Typography
-                              id="transition-modal-title"
-                              variant="h6"
-                              component="h2"
-                            >
-                              Thanks for submitting your details
-                            </Typography>
-                            <Typography
-                              id="transition-modal-description"
-                              sx={{ mt: 0 }}
-                            >
-                              Thank you for reaching out. We will contact you
-                              shortly.
-                            </Typography>
-                          </Box>
-                        </Fade>
-                      </Modal>
-                    </div>
+                          <span>Submit</span>
+                        </button>
+
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          open={open}
+                          onClose={resetForm}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open}>
+                            <Box sx={style}>
+                              <Typography
+                                id="transition-modal-title"
+                                variant="h6"
+                                component="h2"
+                              >
+                                Thanks for submitting your details
+                              </Typography>
+                              <Typography
+                                id="transition-modal-description"
+                                sx={{ mt: 0 }}
+                              >
+                                Thank you for reaching out. We will contact you
+                                shortly.
+                              </Typography>
+                            </Box>
+                          </Fade>
+                        </Modal>
+                      </div>
+                    </Box>
                   </Box>
-                </Box>
+                </div>
               </div>
-            </div>
             </BS.Col>
           </BS.Row>
         </Container>

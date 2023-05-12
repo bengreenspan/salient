@@ -1,14 +1,14 @@
-import React from 'react';
-import * as BS from 'react-bootstrap';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { useLocation } from 'react-router-dom';
-import companies from './data/StockList.js';
-import { useParams } from 'react-router-dom';
-import { alpha, styled } from '@mui/material/styles';
-import TextField, { TextFieldProps } from '@mui/material/TextField';
-import Grid from './SingleStockFiles.js';
+import React from "react";
+import * as BS from "react-bootstrap";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import { useLocation } from "react-router-dom";
+import companies from "./data/StockList.js";
+import { useParams } from "react-router-dom";
+import { alpha, styled } from "@mui/material/styles";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
+import Grid from "./SingleStockFiles.js";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -58,7 +58,7 @@ const Stock = () => {
             </div>
           </Typography>
         </Box>
-        <Box
+        {/* <Box
           component="form"
           noValidate
           sx={{
@@ -71,7 +71,7 @@ const Stock = () => {
             label="Input Question Here"
             id="custom-css-outlined-input"
           />
-        </Box>
+        </Box> */}
 
         <Box
           sx={{

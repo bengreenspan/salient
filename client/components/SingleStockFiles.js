@@ -143,6 +143,16 @@ const Grid = ({ company }) => {
         <TableHead>
           <TableRow>
             <TableCell>
+              Date Filed
+              <IconButton onClick={() => sortData("Date_Filed")}>
+                {sortField === "Date_Filed" && sortDirection === "asc" ? (
+                  <ArrowUpwardIcon fontSize="inherit" />
+                ) : (
+                  <ArrowDownwardIcon fontSize="inherit" />
+                )}
+              </IconButton>
+            </TableCell>
+            <TableCell>
               Filing type
               <IconButton onClick={() => sortData("Doctype")}>
                 {sortField === "Doctype" && sortDirection === "asc" ? (
@@ -156,16 +166,7 @@ const Grid = ({ company }) => {
               </IconButton>
             </TableCell>
             <TableCell>URL</TableCell>
-            <TableCell>
-              Date Filed
-              <IconButton onClick={() => sortData("Date_Filed")}>
-                {sortField === "Date_Filed" && sortDirection === "asc" ? (
-                  <ArrowUpwardIcon fontSize="inherit" />
-                ) : (
-                  <ArrowDownwardIcon fontSize="inherit" />
-                )}
-              </IconButton>
-            </TableCell>
+
             <TableCell>
               Quarter
               <IconButton onClick={() => sortData("Quarter")}>
@@ -197,13 +198,13 @@ const Grid = ({ company }) => {
         <TableBody>
           {sortedDocs.map((doc, index) => (
             <TableRow key={index}>
+              <TableCell>{serialNumberToDate(doc.Date_Filed)}</TableCell>
               <TableCell>{doc.Doctype}</TableCell>
               <TableCell>
                 <a href={doc.url} target="_blank" rel="noopener noreferrer">
                   {doc.url}
                 </a>
               </TableCell>
-              <TableCell>{serialNumberToDate(doc.Date_Filed)}</TableCell>
               <TableCell>{doc.Quarter}</TableCell>
               <TableCell>{doc.Year}</TableCell>
             </TableRow>

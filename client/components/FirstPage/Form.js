@@ -101,7 +101,7 @@ const Form = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <div className="fontbold">Did we miss an event?</div>
+                  <div className="fontbold">Any feedback you would like to give?</div>
 
                   <div className="fontbold">Fill out the form below </div>
                   <br />
@@ -240,13 +240,13 @@ const Form = () => {
 
               <Typography component={"span"} sx={{ mt: 10, pb: 0 }}>
                     <h4 className="font">
-                    Are you the head of a club or other organization?
+                    As we build out functionality of the site we would love any feedback
                     </h4>
                     <h4 className="font">
-                    Would you like to regularly have your events on the site?
+                    Any suggestions?
                     </h4>
                     <h4 className="fontbold">
-                    Email us at Events@cbshappenings.com
+                    Email us at bg2767@columbia.edu
                     </h4>
                   </Typography>
 

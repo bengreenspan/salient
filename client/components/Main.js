@@ -7,6 +7,7 @@ import Search from "./Search";
 import Warning from "./Warning";
 import { Divider } from "@mui/material";
 import { inject } from "@vercel/analytics";
+import * as BS from "react-bootstrap";
 
 <Divider sx={{ m: 0, p: 0 }} />;
 
@@ -14,12 +15,18 @@ inject();
 
 export const Main = () => (
   <div>
-    <Warning/>
-    <Search />
+    <BS.Row>
+      <BS.Col lg={6}>
+        <Warning />
+      </BS.Col>
+      <BS.Col lg={6}>
+        <Search />
+      </BS.Col>
+    </BS.Row>
     <EmailForm />
-    <div className="gray">
+    {/* <div className="gray"> */}
       <Form />
-    </div>
+    {/* </div> */}
     <div className="gray">
       <Faq />
     </div>

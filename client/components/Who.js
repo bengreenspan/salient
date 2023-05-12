@@ -54,12 +54,13 @@ const Who = () => {
                       <Typography align="right">
                         <h5 className="font">
                           <div data-aos="fade-left" data-aos-duration="1000">
-                            Finding useful and relevant information for
-                            Financial Professionals
+                            Search bar for SEC Documents
                             <br />
                             <br />
-                            Our mission is to aggregate and link to research in
-                            one convenient place.
+                            Financial professionals spend too much time finding
+                            data to build models Salient will save customers
+                            time using AI enabled tools by finding the
+                            information they are looking for in fewer keystrokes
                           </div>
                         </h5>
                       </Typography>
@@ -86,7 +87,7 @@ const Who = () => {
                             <img src="/promo.svg" height={130} />
                             <br />
                             <br />
-
+{/* <div>
                             <h2>
                               Guy 1 <br />
                               <div className="fontbold">Interns</div>
@@ -98,8 +99,10 @@ const Who = () => {
                               <br />
                               @gsb.columbia.edu{" "}
                             </h4>
+                            </div> */}
                           </Typography>
                         </div>
+                        
                         <br />
                       </Box>
                     </Box>
@@ -124,9 +127,16 @@ const Who = () => {
                               </h2>
                               <br />
                               <h4>
-                                Currently a senior equity trader with a finance
-                                background, Ben is looking to pursue a more
-                                innovative and entrepenurial career.
+                                <ul>
+                                  <li>
+                                    Six years as an equity trader at Trillium
+                                    Management
+                                  </li>
+                                  <li>Columbia EMBA '24 student</li>
+                                  <li>
+                                    Founder and President of the AI Club at CBS
+                                  </li>
+                                </ul>
                                 <br />
                                 <br />
                                 Bgreenspan24@gsb.columbia.edu{" "}
