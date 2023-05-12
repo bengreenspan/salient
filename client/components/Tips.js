@@ -229,7 +229,7 @@ const Tips = () => {
                         <div className="links">
                           <h4>Financial Times</h4>
                         </div> */}
-                      </a>
+                      {/* </a> */}
                     </div>
                   </div>
                 </BS.Col>
